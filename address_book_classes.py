@@ -14,18 +14,27 @@ class Phone(Field):
     pass
 
 
+class Birthday(Field):
+    pass
+
+
 class Record:
     def __init__(self, name):
         self.name = Name(name)
         self.phones = []
+        self.birthday = None
 
     def get_info(self):
         phones_info = ''
+        birthday_info = ''
 
         for phone in self.phones:
             phones_info += f'{phone.value}, '
 
-        return f'{self.name.value} : {phones_info[:-2]}'
+        if self.birthday:
+            birthday_info = f' Birthday : {self.birthday.value}'
+
+        return f'{self.name.value} : {phones_info[:-2]}{birthday_info}'
 
     def add_phone(self, phone):
         self.phones.append(Phone(phone))
@@ -41,6 +50,11 @@ class Record:
         for phone in phones:
             if not self.delete_phone(phone):
                 self.add_phone(phone)
+
+    def add_birthday(self, date):
+        self.birthday = Birthday(date)
+
+
 
 
 class AddressBook(UserDict):

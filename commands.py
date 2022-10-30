@@ -98,6 +98,15 @@ def del_phone_func(data):
     return f'{name} contact does not have this number'
 
 
+@input_error
+def birthday_func(data):
+    name, date = data.strip().split(' ')
+
+    record = contacts_dict[name]
+    record.add_birthday(date)
+
+    return f'For {name} you add Birthday {date}'
+
 def create_data(data):
     """
     Розділяє вхідні дані на дві частини - номер і телефон.
