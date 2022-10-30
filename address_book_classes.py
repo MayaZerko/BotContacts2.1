@@ -69,3 +69,6 @@ class AddressBook(UserDict):
                     return record
 
         raise ValueError("Contact with this value does not exist.")
+
+
+contacts_dict = AddressBook()
