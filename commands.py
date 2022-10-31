@@ -107,6 +107,16 @@ def birthday_func(data):
 
     return f'For {name} you add Birthday {date}'
 
+
+@input_error
+def next_birthday_func(name):
+    name = name.strip()
+
+    record = contacts_dict[name]
+
+    return f"Days to next birthday of this {name} will be in {record.get_days_to_next_birthday()}."
+
+
 def create_data(data):
     """
     Розділяє вхідні дані на дві частини - номер і телефон.
