@@ -71,9 +71,14 @@ def show_func():
     :return: Список контактів.
     """
     contacts = ''
-    for key, record in contacts_dict.get_all_record().items():
-        contacts += f'{record.get_info()}\n'
+    page_number = 1
 
+    for page in contacts_dict.iterator():
+        contacts += f'Page #{page_number}\n'
+
+        for record in page:
+            contacts += f'{record.get_info()}\n'
+        page_number += 1
     return contacts
 
 
