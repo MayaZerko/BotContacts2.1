@@ -129,7 +129,5 @@ def create_data(data):
 
     if name.isnumeric():
         raise ValueError('Wrong name.')
-    for phone in phones:
-        if not phone.isnumeric():
-            raise ValueError('Wrong phones.')
+
     return name, phones
